@@ -10,7 +10,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-<scirpt src="/OSTaster/search.js"></script>
 <div class="jumbotron">
   <h1>OSTaster</h1>
   <p>Welcome to OSTaster! Here, I will show you all of the (linux) OSes that I've tried, and <b>you</b> (Yes, you!) can suggest new ones!</p>
@@ -41,5 +40,23 @@
     <li><a href="#">hi</a></li>
 </ul>
 </center>
+<script>
+function search() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("searchBox");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("searchItems");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
 </body>
 </html>
